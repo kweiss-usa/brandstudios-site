@@ -27,14 +27,15 @@ img{max-width:100%}
 @media (max-width:700px){.wrap{padding:0 22px}}
 
 /* header */
-header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
+header.top{position:sticky;top:0;z-index:50;background:#232325;border-bottom:1px solid rgba(255,255,255,.06)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
 .logo img{display:block;width:44px;height:44px}
-nav.main{display:flex;align-items:center;gap:30px;flex-wrap:wrap;font-size:15px;color:#424245}
-nav.main a[aria-current="page"]{color:var(--ink);font-weight:500}
-.lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:980px;padding:3px}
-.lang button{font:inherit;font-size:13px;border:0;background:none;color:var(--muted);padding:5px 12px;border-radius:980px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+nav.main{display:flex;align-items:center;gap:30px;flex-wrap:wrap;font-size:15px;color:rgba(255,255,255,.68)}
+nav.main a:hover{color:#fff}
+nav.main a[aria-current="page"]{color:#fff;font-weight:500}
+.lang{display:flex;gap:2px;border:1px solid rgba(255,255,255,.22);border-radius:980px;padding:3px}
+.lang button{font:inherit;font-size:13px;border:0;background:none;color:rgba(255,255,255,.68);padding:5px 12px;border-radius:980px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#fff;color:#1d1d1f}
 
 /* type */
 h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.035em;text-wrap:balance}
