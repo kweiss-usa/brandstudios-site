@@ -70,9 +70,12 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.035em;text-wrap:balance}
 .hero .btn:hover{background:#F5F5F7;color:var(--ink)}
 .hero .link{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
 .darkband{background:#2C2C2E}section.tight.darkband{padding:56px 0}.darkband .logos img{filter:brightness(0) invert(1);opacity:.9}
+section.grey.teambg{background:linear-gradient(rgba(16,18,20,.76),rgba(16,18,20,.76)),#1b2124 url(img/team-bg.jpg) center 40%/cover no-repeat;color:#fff}.teambg .h2,.teambg .person b{color:#fff}.teambg .person span{color:rgba(255,255,255,.78)}.teambg .link{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
 .storybg{background:linear-gradient(rgba(16,18,20,.74),rgba(16,18,20,.74)),#1b2124 url(img/story.jpg) center 45%/cover no-repeat;color:#fff;padding:150px 0}.storybg .lede{color:rgba(255,255,255,.9)}.storybg .link{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
 .redband{background:var(--orange);color:#fff}
-section.tight.redband{padding:170px 0}
+section.tight.redband{padding:170px 0;position:relative;overflow:hidden}
+.redband .rbv{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:.1;pointer-events:none}
+.redband .wrap{position:relative;z-index:1}
 .redband .statement strong{font-weight:700}
 .hero .grid{display:flex;flex-wrap:wrap;align-items:center;gap:32px 40px}
 .hero .copy{flex:1.9 1 560px;min-width:0}
@@ -244,15 +247,15 @@ footer a{color:#424245}
 .tline li.on::before{background:var(--orange);border-color:var(--orange)}
 .tline li:hover::before{transform:scale(1.7);box-shadow:0 0 0 6px rgba(242,78,41,.18);border-color:var(--orange)}
 .tline li b{transition:transform .25s}.tline li:hover b{transform:translateX(6px)}
-.fam{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
-.fam a{position:relative;overflow:hidden;flex:1 1 210px;min-height:190px;border-radius:22px;color:#fff;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;background:#1D1D1F}
+.fam{display:flex;flex-direction:column;gap:18px;margin-top:34px}
+.fam a{position:relative;overflow:hidden;flex:none;min-height:280px;border-radius:22px;color:#fff;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;background:#1D1D1F}
 .fam a:hover{text-decoration:none}
 .fam video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .fam a:hover video{transform:scale(1.05)}
 .fam .fm{position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(rgba(16,18,20,.25),rgba(16,18,20,.78))}
 .fam b,.fam span{position:relative;display:block}
 .fam b{font-size:24px;letter-spacing:-.02em}.fam span{font-size:15px;margin-top:4px;color:rgba(255,255,255,.82)}
-.fam a.bt{background:#F2F0E9;padding:0;justify-content:space-between;color:#000}.fam a.bt .btl{display:block;width:100%;height:auto}.fam a.bt .bts{display:block;width:100%;height:auto;transition:transform .6s}.fam a.bt:hover .bts{transform:scale(1.04)}
+.fam a.bt{background:#F2F0E9;padding:0;min-height:0;justify-content:space-between;color:#000}.fam a.bt .btl{display:block;width:100%;height:auto}.fam a.bt .bts{display:block;width:100%;height:auto;transition:transform .6s}.fam a.bt:hover .bts{transform:scale(1.04)}
 .tline{margin:0;list-style:none}
 .tline li{display:grid;grid-template-columns:150px 1.25fr 1fr;gap:10px 40px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}@media(max-width:900px){.tline li{grid-template-columns:1fr}}
 .tline b{font-size:26px;letter-spacing:-0.03em;color:var(--orange)}
@@ -558,8 +561,8 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 var ORDER=['next','nbc','digitalu','onehr','xlp','espn','mgm','mytech','collective','gic','helpdesk','discountlabels','createlabs'];P.sort(function(a,b){return ORDER.indexOf(a.id)-ORDER.indexOf(b.id);});
 function proj(id){for(var i=0;i<P.length;i++){if(P[i].id===id)return P[i];}return null;}
 function tile(id){var p=proj(id);return '<a class="tile" href="#work-'+p.id+'"><img src="img/'+p.img+'" alt="'+esc(p.name)+'" width="700" height="700"><span class="cap"><b>'+esc(p.name)+'</b><i>'+esc(p[lang][0])+'</i></span></a>';}
-function rotw(){
-  var w=T().words;
+function rotw(skip){
+  var w=T().words.filter(function(x,i){return i!==skip;});
   return '<span class="rotw" data-rot aria-label="'+esc(w[0])+'">'+w.map(function(x,i){return '<span'+(i===0?' class="on"':'')+' aria-hidden="true">'+esc(x)+'</span>';}).join('')+'</span>';
 }
 
@@ -676,12 +679,12 @@ function pageHome(){
    '<div class="field"><canvas id="field" aria-hidden="true"></canvas></div>'+
   '</div></div></section>'+
   marquee()+
-  '<section class="tight redband"><div class="wrap"><p class="statement">'+esc(t.statement).replace(/\b(feel|siente)\b/,'<strong>$1</strong>')+'</p></div></section>'+
+  '<section class="tight redband"><video class="rbv" src="img/red-overlay.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video><div class="wrap"><p class="statement">'+esc(t.statement).replace(/\b(feel|siente)\b/,'<strong>$1</strong>')+'</p></div></section>'+
   manifestoBand()+servicesBand()+methodBand()+
   '<section class="grey" style="padding-bottom:0"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.selected)+'</h2><a class="link" href="#work">'+esc(t.allWork)+'</a></div></div><div class="tiles">'+feat+'</div></section>'+
   casesBand()+industriesBand()+storyTeaser()+persBand()+
   '<section><div class="wrap"><div class="beliefs-lines">'+bl+'</div></div></section>'+
-  '<section class="grey"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.teamTitle)+'</h2><a class="link" href="#team">'+esc(t.meetTeam)+'</a></div><div class="people six">'+people+'</div></div></section>'+
+  '<section class="grey teambg"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.teamTitle)+'</h2><a class="link" href="#team">'+esc(t.meetTeam)+'</a></div><div class="people six">'+people+'</div></div></section>'+
   ctaBlock();
 }
 function ctaBlock(){
@@ -744,7 +747,7 @@ function pageBeliefs(){
 }
 function pageContact(){
   var t=T();
-  return '<div class="pagehead"><div class="wrap"><h1 class="display">'+esc(t.h1b)+rotw()+'<span class="orange">.</span></h1><p class="lede">'+esc(t.contactLede)+'</p></div></div>'+
+  return '<div class="pagehead"><div class="wrap"><h1 class="display">'+esc(t.h1b)+rotw(1)+'<span class="orange">.</span></h1><p class="lede">'+esc(t.contactLede)+'</p></div></div>'+
   '<section class="tight" style="padding-top:0"><div class="wrap contact">'+
    '<div class="l"><div class="note">'+esc(t.contactLabel)+'</div><div style="font-size:clamp(24px,3vw,34px);font-weight:500;letter-spacing:-0.02em;margin-top:6px"><a href="mailto:info@brandstudios.net">info@brandstudios.net</a></div>'+
    '<div class="offices"><div><b>'+esc(t.officeA)+'</b>685 Main St., Ste C<br>Safety Harbor, FL 34695</div><div><b>'+esc(t.officeB)+'</b>Spain</div></div></div>'+
