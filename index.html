@@ -609,7 +609,7 @@ function startField(){
     cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
     ctx.setTransform(dpr,0,0,dpr,0,0);
     dots=[];
-    var n=58,s=Math.min(W,H)/n,cx=W/2,cy=H/2,R=Math.min(W,H)*0.34;
+    var n=96,s=Math.min(W,H)/n,cx=W/2,cy=H/2,R=Math.min(W,H)*0.34;
     for(var gy=0;gy<=n;gy++){for(var gx=0;gx<=n;gx++){
       var x=gx*s+(W-n*s)/2,y=gy*s+(H-n*s)/2,dx=x-cx,dy=y-cy,d=Math.sqrt(dx*dx+dy*dy);
       if(d>R*1.34)continue;
@@ -628,11 +628,11 @@ function startField(){
       var p=dots[i],k=reduce?1:Math.min(1,Math.max(0,(t-p.delay)/1.5)),e=ease(k);
       var x=p.x+p.ox*(1-e),y=p.y+p.oy*(1-e);
       var r,col,wave=reduce?0:Math.sin(t*1.3+p.d*0.035);
-      if(p.inside){r=dots.s*0.2+wave*dots.s*0.05;col='#F24E29';if(p.w){r=dots.s*0.27+wave*dots.s*0.02;col='#FFFFFF';}else if(p.nw){r*=0.5;}}
+      var fa=1;if(p.inside){r=dots.s*0.16+wave*dots.s*0.03;col='#F24E29';fa=0.85;if(p.w){r=dots.s*0.3;col='#FFFFFF';fa=1;}else if(p.nw){r*=0.35;fa=0.4;}}
       else{var f=Math.max(0,1-(p.d-dots.R)/(dots.R*0.34));r=dots.s*0.06*(0.4+f);col='#C7C7CC';}
       var ddx=x-mx,ddy=y-my,dd=Math.sqrt(ddx*ddx+ddy*ddy);
       if(dd<120){var q=1-dd/120;r*=1+q*1.1;x+=ddx/(dd||1)*q*8;y+=ddy/(dd||1)*q*8;}
-      ctx.globalAlpha=0.25+0.75*e;
+      ctx.globalAlpha=(0.25+0.75*e)*fa;
       ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,Math.max(r,0.6),0,Math.PI*2);ctx.fill();
     }
     ctx.globalAlpha=1;
