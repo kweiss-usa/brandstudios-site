@@ -70,6 +70,7 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.035em;text-wrap:balance}
 .hero .btn:hover{background:#F5F5F7;color:var(--ink)}
 .hero .link{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
 .darkband{background:#2C2C2E}section.tight.darkband{padding:56px 0}.darkband .logos img{filter:brightness(0) invert(1);opacity:.9}
+.storybg{background:linear-gradient(rgba(16,18,20,.74),rgba(16,18,20,.74)),#1b2124 url(img/story.jpg) center 45%/cover no-repeat;color:#fff;padding:150px 0}.storybg .lede{color:rgba(255,255,255,.9)}.storybg .link{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
 .redband{background:var(--orange);color:#fff}
 section.tight.redband{padding:170px 0}
 .redband .statement strong{font-weight:700}
@@ -1045,7 +1046,7 @@ function industriesBand(){
 }
 function storyTeaser(){
   var k=K();
-  return '<section><div class="wrap" style="max-width:900px"><h2 class="h2">'+esc(k.storyPage.title)+'</h2><p class="lede" style="margin-top:22px;max-width:760px;color:#424245">'+esc(k.homeStoryLede)+'</p><p style="margin-top:28px"><a class="link" href="#story">'+esc(k.hmore)+'</a></p></div></section>';
+  return '<section class="storybg"><div class="wrap" style="max-width:900px"><h2 class="h2">'+esc(k.storyPage.title)+'</h2><p class="lede" style="margin-top:22px;max-width:760px">'+esc(k.homeStoryLede)+'</p><p style="margin-top:28px"><a class="link" href="#story">'+esc(k.hmore)+'</a></p></div></section>';
 }
 function persCard(p,i){
   var k=K();
