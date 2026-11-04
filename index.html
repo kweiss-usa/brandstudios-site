@@ -1115,7 +1115,7 @@ function pageStory(){
  var tl=s.timeline.map(function(x){var lg=lgs(x[2]);return '<li class="rv"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span>'+(lg?'<div class="tlogos">'+lg+'</div>':'')+'</li>';}).join('');
  var press=(s.pressItems||[]).map(function(p){return '<li class="rv"><span class="rl"><em>'+esc(p[0])+'</em></span><span class="rt"><a class="inl" href="'+p[3]+'" target="_blank" rel="noopener"><b>'+esc(p[1])+'</b></a>'+esc(p[2])+(p[4]?' '+esc(p[4])+'.':'')+'</span></li>';}).join('');
  var rec=(s.recItems||[]).map(function(r){return '<li class="rv"><span class="rl">'+lgs([r[3]])+'</span><span class="rt"><b>'+esc(r[2])+(r[0]?' '+esc(r[0]):'')+'</b>'+esc(r[1])+'</span></li>';}).join('');
-  return '<div class="pagehead"><div class="wrap"><h1 class="display">'+esc(s.title)+'.</h1><p class="lede">'+esc(s.lede)+'</p></div></div>'+
+  return heroHead(esc(s.title)+'.',esc(s.lede),'','story-hero.mp4')+
   numbersBand()+
   '<section class="tight" style="padding-top:20px"><div class="wrap chaps">'+ch+'</div></section>'+
   '<section class="grey"><div class="wrap"><h2 class="h2" style="margin-bottom:40px">'+esc(s.timeTitle)+'</h2><ul class="tline"><i class="tprog"></i><i class="tarrow"></i>'+tl+'</ul></div></section>'+
