@@ -1123,7 +1123,7 @@ function persBand(){
 function famLinks(t){
   return esc(t).replace('The Posse','<a class="inl" href="https://themarketingposse.com" target="_blank" rel="noopener">The Posse</a>').replace('The Black Table','<a class="inl" href="https://blacktable.company" target="_blank" rel="noopener">The Black Table</a>');
 }
-var STORYVID={1:'story-02.mp4'};
+var STORYVID={1:'story-02.mp4',2:'story-03.mp4'};
 function pageStory(){
   var k=K(),s=k.storyPage;
   var ch=s.chapters.map(function(c,i){return '<div class="chap rv"><span class="orange">0'+(i+1)+'</span><div class="ct"><h3>'+esc(c[0])+'</h3><p>'+esc(c[1])+'</p></div><div class="orb" aria-hidden="true">'+(STORYVID[i]?'<video src="img/'+STORYVID[i]+'" poster="img/story-0'+(i+1)+'.jpg" muted loop playsinline preload="auto"></video>':'<img src="img/story-0'+(i+1)+'.jpg" alt="">')+'<i class="oring"></i></div></div>';}).join('');
