@@ -61,7 +61,15 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.035em;text-wrap:balance}
 @media (prefers-reduced-motion:reduce){#app{animation:none}html{scroll-behavior:auto}}
 
 /* hero */
-.hero{padding-top:72px;padding-bottom:40px}
+.hero{position:relative;overflow:hidden;color:#fff;padding-top:120px;padding-bottom:110px;background:#1b2124}
+.hero .bg{position:absolute;left:0;right:0;top:-45%;height:145%;background:#1b2124 url(img/hero.jpg) center 55%/cover no-repeat;will-change:transform;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+.hero .display{color:#fff}
+.hero p.lede{color:rgba(255,255,255,.84)}
+.hero .btn{background:#fff;color:var(--ink)}
+.hero .btn:hover{background:#F5F5F7;color:var(--ink)}
+.hero .link{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
+.redband{background:var(--orange);color:#fff}
 .hero .grid{display:flex;flex-wrap:wrap;align-items:center;gap:32px 40px}
 .hero .copy{flex:1.9 1 560px;min-width:0}
 .hero .display{font-size:clamp(34px,4.9vw,72px);line-height:1.04}
@@ -592,6 +600,8 @@ function startField(){
   window.addEventListener('resize',function(){setup();if(reduce)draw(performance.now());});
   if(reduce){draw(performance.now());}else{raf=requestAnimationFrame(draw);}
 }
+(function(){var tk=false;function px(){tk=false;var b=document.querySelector('.hero .bg');if(!b)return;var y=window.pageYOffset||0;if(y>2400)return;b.style.transform='translate3d(0,'+(y*0.4).toFixed(1)+'px,0)';}
+if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(px);}},{passive:true});}})();
 function stopField(){if(raf){cancelAnimationFrame(raf);raf=null;}}
 
 /* ---------- pages ---------- */
@@ -603,16 +613,17 @@ function pageHome(){
   var bl=t.beliefsLines.map(function(l,i){return '<p'+(i===2?' class="orange"':'')+'>'+esc(l)+'</p>';}).join('');
   var people=t.people.map(function(p){return '<div class="person"><div class="pic" '+(p[0]==='Kenyon Weiss'?'':'aria-hidden="true"')+'>'+picOf(p[0])+'</div><b>'+esc(p[0])+'</b><span>'+esc(p[1])+'</span></div>';}).join('');
   return ''+
-  '<section class="hero"><div class="wrap"><div class="grid">'+
+  '<section class="hero"><div class="bg" aria-hidden="true"></div><div class="wrap"><div class="grid">'+
    '<div class="copy"><h1 class="display">'+esc(t.h1a)+'<br><span class="nw">'+esc(t.h1b)+rotw()+'.</span></h1>'+
    '<p class="lede">'+esc(t.heroLede)+'</p>'+
    '<div class="actions"><a class="btn" href="#contact">'+esc(t.btnBuild)+'</a><a class="link" href="#work">'+esc(t.seeWork)+'</a></div></div>'+
    '<div class="field"><canvas id="field" aria-hidden="true"></canvas></div>'+
   '</div></div></section>'+
-  '<section class="tight"><div class="wrap"><p class="statement">'+esc(t.statement)+'</p></div></section>'+
-  numbersBand()+manifestoBand()+servicesBand()+methodBand()+
+  marquee()+
+  '<section class="tight redband"><div class="wrap"><p class="statement">'+esc(t.statement)+'</p></div></section>'+
+  manifestoBand()+servicesBand()+methodBand()+
   '<section class="grey" style="padding-bottom:0"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.selected)+'</h2><a class="link" href="#work">'+esc(t.allWork)+'</a></div></div><div class="tiles">'+feat+'</div></section>'+
-  marquee()+casesBand()+industriesBand()+storyTeaser()+persBand()+
+  casesBand()+industriesBand()+storyTeaser()+persBand()+
   '<section><div class="wrap"><div class="beliefs-lines">'+bl+'</div></div></section>'+
   '<section class="grey"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.teamTitle)+'</h2><a class="link" href="#team">'+esc(t.meetTeam)+'</a></div><div class="people">'+people+'</div></div></section>'+
   ctaBlock();
