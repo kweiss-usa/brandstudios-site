@@ -249,7 +249,7 @@ footer a{color:#424245}
 .tline.done .tarrow{border-color:var(--orange)}
 .tline li{position:relative;border-top:1px solid var(--line);border-bottom:0}
 .tline li:last-of-type{border-bottom:0}
-.tline li::before{content:"";position:absolute;left:-52px;top:36px;width:12px;height:12px;border-radius:50%;background:var(--grey);border:2px solid #C7C7CC;box-sizing:border-box;z-index:2;transition:transform .25s,background .25s,border-color .25s,box-shadow .25s}
+.tline li::before{content:"";position:absolute;left:-52px;top:calc(50% - 6px);width:12px;height:12px;border-radius:50%;background:var(--grey);border:2px solid #C7C7CC;box-sizing:border-box;z-index:2;transition:transform .25s,background .25s,border-color .25s,box-shadow .25s}
 .tline li.on::before{background:var(--orange);border-color:var(--orange)}
 .tline li:hover::before{transform:scale(1.7);box-shadow:0 0 0 6px rgba(242,78,41,.18);border-color:var(--orange)}
 .tline li b{transition:transform .25s}.tline li:hover b{transform:translateX(6px)}
@@ -263,7 +263,7 @@ footer a{color:#424245}
 .fam b{font-size:24px;letter-spacing:-.02em}.fam span{font-size:15px;margin-top:4px;color:rgba(255,255,255,.82)}
 .fam a.bt{background:#F2F0E9;padding:0;min-height:0;justify-content:space-between;color:#000}.fam a.bt .btl{display:block;width:100%;height:auto}.fam a.bt .bts{display:block;width:100%;height:auto;transition:transform .6s}.fam a.bt:hover .bts{transform:scale(1.04)}
 .tline{margin:0;list-style:none}
-.tline li{display:grid;grid-template-columns:150px 1.25fr 1fr;gap:10px 40px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}@media(max-width:900px){.tline li{grid-template-columns:1fr}}
+.tline li{display:grid;grid-template-columns:150px 1.25fr 1fr;gap:10px 40px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}@media(max-width:900px){.tline li{grid-template-columns:1fr}.tline li::before{top:38px}}
 .tline b{font-size:26px;letter-spacing:-0.03em;color:var(--orange)}
 .tline span{font-size:18px;line-height:1.5;color:#2c2c2e}
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px 72px}
@@ -765,7 +765,7 @@ function pageContact(){
   return '<div class="pagehead"><div class="wrap"><h1 class="display">'+esc(t.h1b)+rotw(1)+'<span class="orange">.</span></h1><p class="lede">'+esc(t.contactLede)+'</p></div></div>'+
   '<section class="tight" style="padding-top:0"><div class="wrap contact">'+
    '<div class="l"><div class="note">'+esc(t.contactLabel)+'</div><div style="font-size:clamp(24px,3vw,34px);font-weight:500;letter-spacing:-0.02em;margin-top:6px"><a href="mailto:info@brandstudios.net">info@brandstudios.net</a></div>'+
-   '<div class="offices"><div><b>'+esc(t.officeA)+'</b>685 Main St., Ste C<br>Safety Harbor, FL 34695</div><div><b>'+esc(t.officeB)+'</b>Spain</div></div></div>'+
+   '<div class="offices"><div><b>'+esc(t.officeA)+'</b>685 Main St., Ste C<br>Safety Harbor, FL 34695</div><div><b>'+esc(t.officeB)+'</b>Padilla 347<br>08025 Barcelona, Spain<br><a href="tel:+34683586231">+34 683-586-231</a><br><a href="mailto:barcelona@brandstudios.com">barcelona@brandstudios.com</a></div></div></div>'+
    '<form id="cf" novalidate><label for="f1">'+esc(t.fName)+'<input id="f1" name="n" autocomplete="name"></label>'+
    '<label for="f2">'+esc(t.fEmail)+'<input id="f2" name="e" type="email" autocomplete="email"></label>'+
    '<label for="f3">'+esc(t.fCompany)+'<input id="f3" name="c" autocomplete="organization"></label>'+
