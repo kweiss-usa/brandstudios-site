@@ -49,8 +49,8 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.035em;text-wrap:balance}
 .link::after{content:" \203A"}
 
 /* rotating word */
-.rotw{display:inline-block;position:relative;overflow:hidden;vertical-align:bottom;height:1.12em;color:var(--orange);transition:width .55s cubic-bezier(.2,.8,.2,1)}
-.rotw span{position:absolute;left:0;top:0;white-space:nowrap;line-height:1.1;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .45s;transform:translateY(105%);opacity:0}
+.rotw{display:inline-block;position:relative;overflow:hidden;vertical-align:-0.26em;height:1.3em;color:var(--orange);transition:width .55s cubic-bezier(.2,.8,.2,1)}
+.rotw span{position:absolute;left:0;top:0;white-space:nowrap;line-height:1.3;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .45s;transform:translateY(105%);opacity:0}
 .rotw span.on{transform:translateY(0);opacity:1}
 .rotw span.off{transform:translateY(-105%);opacity:0}
 .rotw.static span{position:static}
@@ -69,13 +69,14 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.035em;text-wrap:balance}
 .hero .btn{background:#fff;color:var(--ink)}
 .hero .btn:hover{background:#F5F5F7;color:var(--ink)}
 .hero .link{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
+.darkband{background:#2C2C2E}.darkband .logos img{filter:brightness(0) invert(1);opacity:.9}
 .redband{background:var(--orange);color:#fff}
 .hero .grid{display:flex;flex-wrap:wrap;align-items:center;gap:32px 40px}
 .hero .copy{flex:1.9 1 560px;min-width:0}
 .hero .display{font-size:clamp(34px,4.9vw,72px);line-height:1.04}
 .nw{display:inline}
 @media (min-width:900px){.nw{white-space:nowrap}}
-.hero .field{flex:1 1 320px;min-width:0;aspect-ratio:1/1;max-width:460px;margin-left:auto}
+.hero .field{flex:1 1 280px;min-width:0;aspect-ratio:1/1;max-width:380px;margin-left:auto}
 .hero canvas{display:block;width:100%;height:100%}
 .hero .actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:36px}
 .hero p.lede{margin:28px 0 0}
@@ -103,6 +104,8 @@ section.tight{padding:70px 0}
 .beliefs-lines{display:flex;flex-direction:column;gap:18px;text-align:center}
 .beliefs-lines p{margin:0;font-weight:600;font-size:clamp(30px,4.6vw,56px);line-height:1.08;letter-spacing:-0.038em;text-wrap:balance}
 
+.people.six{}
+@media (min-width:1000px){.people.six{grid-template-columns:repeat(6,1fr)!important;gap:20px}}
 .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px}
 .person .pic{aspect-ratio:4/5;background:var(--grey);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:300;letter-spacing:-0.04em;color:#B8B8BD;margin-bottom:14px}
 .person b{display:block;font-weight:600;font-size:19px}
@@ -367,14 +370,16 @@ var UI={
    ['Trudy Schnitzler','Creative Director'],
    ['Diego Sinich','Motion Design Director'],
    ['Flaco Zacarias','Senior Art Director'],
-   ['Gabriela Rimoldi','Manager, Operations']
+   ['Gabriela Rimoldi','Manager, Operations'],
+   ['Liam Weiss','Designer']
   ],
   kenyonBio:['Kenyon founded Brand Studios in 2007 and has led creative teams at Proxicom, Modem Media and Publicis. He has worked on some of the first major brand sites on the web, and his work has won OMMA awards for Kraft Foods and London Advertising Awards for GE.','He leads with empathy and humility, and believes a creative leader works for the team, not the other way around.'],
   coreNotes:{
    'Trudy Schnitzler':'Leads creative direction for the studio.',
    'Diego Sinich':'More than thirty years in motion design and interactive advertising.',
    'Flaco Zacarias':'Art direction and design, and a teacher of web design.',
-   'Gabriela Rimoldi':'Manages all accounting, day-to-day operations and administration for the office.'
+   'Gabriela Rimoldi':'Manages all accounting, day-to-day operations and administration for the office.',
+   'Liam Weiss':'Our production artist and AI guru, and our in-house DJ.'
   },
   collectiveTitle:'And the collective.',
   collectiveText:'Around the core we bring in the right writers, designers, filmmakers, animators and strategists for each job. Some stay for years. They all play to win, and they all play together.',
@@ -440,14 +445,16 @@ var UI={
    ['Trudy Schnitzler','Directora Creativa'],
    ['Diego Sinich','Director de Motion Design'],
    ['Flaco Zacarias','Director de Arte Senior'],
-   ['Gabriela Rimoldi','Gerente de Operaciones']
+   ['Gabriela Rimoldi','Gerente de Operaciones'],
+   ['Liam Weiss','Diseñador']
   ],
   kenyonBio:['Kenyon fundó Brand Studios en 2007 y lideró equipos creativos en Proxicom, Modem Media y Publicis. Trabajó en algunos de los primeros grandes sitios de marcas en la web, y su trabajo ganó premios OMMA por Kraft Foods y London Advertising Awards por GE.','Lidera con empatía y humildad, y cree que un líder creativo trabaja para su equipo y no al revés.'],
   coreNotes:{
    'Trudy Schnitzler':'Lidera la dirección creativa del estudio.',
    'Diego Sinich':'Más de treinta años de motion design y publicidad interactiva.',
    'Flaco Zacarias':'Dirección de arte y diseño, y docente de diseño web.',
-   'Gabriela Rimoldi':'Se ocupa de toda la contabilidad, las operaciones diarias y la administración de la oficina.'
+   'Gabriela Rimoldi':'Se ocupa de toda la contabilidad, las operaciones diarias y la administración de la oficina.',
+   'Liam Weiss':'Nuestro artista de producción y gurú de IA, y nuestro DJ de la casa.'
   },
   collectiveTitle:'Y el colectivo.',
   collectiveText:'Alrededor del núcleo sumamos a los escritores, diseñadores, cineastas, animadores y estrategas indicados para cada trabajo. Algunos se quedan años. Todos juegan para ganar y todos juegan juntos.',
@@ -532,7 +539,7 @@ function startRot(){
   if(!el)return;
   var spans=[].slice.call(el.children);
   var i=0;
-  function size(){el.style.width=spans[i].offsetWidth+'px';}
+  function size(){el.style.width=Math.ceil(spans[i].getBoundingClientRect().width/1+4)+'px';}
   size();
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(size);}
   window.addEventListener('resize',size);
@@ -567,7 +574,7 @@ function startField(){
     cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
     ctx.setTransform(dpr,0,0,dpr,0,0);
     dots=[];
-    var n=26,s=Math.min(W,H)/n,cx=W/2,cy=H/2,R=Math.min(W,H)*0.42;
+    var n=26,s=Math.min(W,H)/n,cx=W/2,cy=H/2,R=Math.min(W,H)*0.34;
     for(var gy=0;gy<=n;gy++){for(var gx=0;gx<=n;gx++){
       var x=gx*s+(W-n*s)/2,y=gy*s+(H-n*s)/2,dx=x-cx,dy=y-cy,d=Math.sqrt(dx*dx+dy*dy);
       if(d>R*1.34)continue;
@@ -576,6 +583,7 @@ function startField(){
     }}
     dots.R=R;dots.s=s;
   }
+  var wm=new Image();wm.src='img/brand-word.png';var wmOk=false;wm.onload=function(){wmOk=true;if(reduce)draw(performance.now());};
   function ease(k){return 1-Math.pow(1-k,3);}
   function draw(now){
     var t=(now-t0)/1000;
@@ -586,11 +594,14 @@ function startField(){
       var r,col,wave=reduce?0:Math.sin(t*1.3+p.d*0.035);
       if(p.inside){r=dots.s*0.2+wave*dots.s*0.05;col='#F24E29';}
       else{var f=Math.max(0,1-(p.d-dots.R)/(dots.R*0.34));r=dots.s*0.06*(0.4+f);col='#C7C7CC';}
+      if(p.inside&&Math.abs(x-W/2)<dots.R*0.74&&Math.abs(y-H/2)<dots.R*0.22){col='#F24E29';r*=0.55;}
       var ddx=x-mx,ddy=y-my,dd=Math.sqrt(ddx*ddx+ddy*ddy);
       if(dd<120){var q=1-dd/120;r*=1+q*1.1;x+=ddx/(dd||1)*q*8;y+=ddy/(dd||1)*q*8;}
       ctx.globalAlpha=0.25+0.75*e;
       ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,Math.max(r,0.6),0,Math.PI*2);ctx.fill();
     }
+    ctx.globalAlpha=Math.min(1,t/1.2);
+    if(wmOk){var ww=dots.R*1.5,hh=ww*wm.height/wm.width;ctx.drawImage(wm,W/2-ww/2,H/2-hh/2,ww,hh);}
     ctx.globalAlpha=1;
     if(!reduce)raf=requestAnimationFrame(draw);
   }
@@ -614,7 +625,7 @@ function pageHome(){
   var people=t.people.map(function(p){return '<div class="person"><div class="pic" '+(p[0]==='Kenyon Weiss'?'':'aria-hidden="true"')+'>'+picOf(p[0])+'</div><b>'+esc(p[0])+'</b><span>'+esc(p[1])+'</span></div>';}).join('');
   return ''+
   '<section class="hero"><div class="bg" aria-hidden="true"></div><div class="wrap"><div class="grid">'+
-   '<div class="copy"><h1 class="display">'+esc(t.h1a)+'<br><span class="nw">'+esc(t.h1b)+rotw()+'.</span></h1>'+
+   '<div class="copy"><h1 class="display">'+esc(t.h1a)+'<br><span class="nw">'+esc(t.h1b)+rotw()+'<span class="orange">.</span></span></h1>'+
    '<p class="lede">'+esc(t.heroLede)+'</p>'+
    '<div class="actions"><a class="btn" href="#contact">'+esc(t.btnBuild)+'</a><a class="link" href="#work">'+esc(t.seeWork)+'</a></div></div>'+
    '<div class="field"><canvas id="field" aria-hidden="true"></canvas></div>'+
@@ -625,14 +636,14 @@ function pageHome(){
   '<section class="grey" style="padding-bottom:0"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.selected)+'</h2><a class="link" href="#work">'+esc(t.allWork)+'</a></div></div><div class="tiles">'+feat+'</div></section>'+
   casesBand()+industriesBand()+storyTeaser()+persBand()+
   '<section><div class="wrap"><div class="beliefs-lines">'+bl+'</div></div></section>'+
-  '<section class="grey"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.teamTitle)+'</h2><a class="link" href="#team">'+esc(t.meetTeam)+'</a></div><div class="people">'+people+'</div></div></section>'+
+  '<section class="grey"><div class="wrap"><div class="sechead"><h2 class="h2">'+esc(t.teamTitle)+'</h2><a class="link" href="#team">'+esc(t.meetTeam)+'</a></div><div class="people six">'+people+'</div></div></section>'+
   ctaBlock();
 }
 function ctaBlock(){
   var t=T();
-  return '<section class="dark"><div class="wrap cta"><h2 class="display">'+esc(t.ctaTitle)+'<br>'+esc(t.h1b)+'<span class="orange">'+esc(t.words[0])+'</span>.</h2><a class="btn orangeb" href="#contact">'+esc(t.btnBuild)+'</a></div></section>';
+  return '<section class="dark"><div class="wrap cta"><h2 class="display">'+esc(t.ctaTitle)+'<br>'+esc(t.h1b)+'<span class="orange">'+esc(t.words[0])+'.</span></h2><a class="btn orangeb" href="#contact">'+esc(t.btnBuild)+'</a></div></section>';
 }
-var PICS={'Kenyon Weiss':'kenyon.jpg','Trudy Schnitzler':'trudy.jpg','Diego Sinich':'diego.jpg','Flaco Zacarias':'flaco.jpg','Gabriela Rimoldi':'gabriela.jpg'};
+var PICS={'Kenyon Weiss':'kenyon.jpg','Trudy Schnitzler':'trudy.jpg','Diego Sinich':'diego.jpg','Flaco Zacarias':'flaco.jpg','Gabriela Rimoldi':'gabriela.jpg','Liam Weiss':'liam.jpg'};
 function picOf(n){return PICS[n]?'<img src="img/'+PICS[n]+'" alt="'+n+'" width="900" height="900">':initials(n);}
 function initials(n){return n.split(' ').map(function(x){return x.charAt(0);}).join('');}
 
@@ -678,7 +689,7 @@ function pageTeam(){
   return '<div class="pagehead"><div class="wrap"><h1 class="display">'+esc(t.teamTitle)+'</h1><p class="lede">'+esc(t.teamLede)+'</p></div></div>'+
   '<section class="tight" style="padding-top:0"><div class="wrap"><div class="bio"><div class="pic">'+picOf('Kenyon Weiss')+'</div><div class="txt"><h2 class="h2">'+esc(k[0])+'</h2><div class="lede" style="margin-top:8px">'+esc(k[1])+'</div><p>'+esc(t.kenyonBio[0])+'</p><p>'+esc(t.kenyonBio[1])+'</p></div></div></div></section>'+
   '<section class="grey"><div class="wrap"><div class="people">'+core+'</div></div></section>'+
-  '<section><div class="wrap" style="max-width:900px"><h2 class="h2">'+esc(t.collectiveTitle)+'</h2><p class="lede" style="margin-top:22px;max-width:760px;color:#424245">'+esc(t.collectiveText)+'</p></div></section>'+ctaBlock();
+  ctaBlock();
 }
 function pageBeliefs(){
   var t=T();
@@ -688,7 +699,7 @@ function pageBeliefs(){
 }
 function pageContact(){
   var t=T();
-  return '<div class="pagehead"><div class="wrap"><h1 class="display">'+esc(t.h1b)+rotw()+'.</h1><p class="lede">'+esc(t.contactLede)+'</p></div></div>'+
+  return '<div class="pagehead"><div class="wrap"><h1 class="display">'+esc(t.h1b)+rotw()+'<span class="orange">.</span></h1><p class="lede">'+esc(t.contactLede)+'</p></div></div>'+
   '<section class="tight" style="padding-top:0"><div class="wrap contact">'+
    '<div class="l"><div class="note">'+esc(t.contactLabel)+'</div><div style="font-size:clamp(24px,3vw,34px);font-weight:500;letter-spacing:-0.02em;margin-top:6px"><a href="mailto:info@brandstudios.net">info@brandstudios.net</a></div>'+
    '<div class="offices"><div><b>'+esc(t.officeA)+'</b>685 Main St., Ste C<br>Safety Harbor, FL 34695</div><div><b>'+esc(t.officeB)+'</b>Spain</div></div></div>'+
@@ -1019,7 +1030,7 @@ var LOGOS=['cognizant','ge','abb','cenveo','utc','ca','mgm','cushman','nbc','boe
 function logoImg(n){return '<img'+(n==='ge'?' class="sq"':'')+' src="img/clients/'+n+'.png" alt="'+n+'" height="48">';}
 function marquee(){
   var items=LOGOS.map(logoImg).join('');
-  return '<section class="tight"><div class="marquee" aria-label="Clients"><div class="logos">'+items+items+items+'</div></div></section>';
+  return '<section class="tight darkband"><div class="marquee" aria-label="Clients"><div class="logos">'+items+items+items+'</div></div></section>';
 }
 function caseCard(c){
   return '<a class="ccard rv" href="#case-'+c.id+'" style="background:'+c.bg+';color:'+c.fg+'"><span class="sector">'+esc(c.sector)+'</span><h3>'+esc(c.name)+'</h3><span class="go">›</span></a>';
