@@ -4,6 +4,14 @@ ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+# Send all http traffic to https (certificate renewals stay on http)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^(.*)$ https://brandstudios.com/$1 [R=301,L]
+# Send www to the main address
+RewriteCond %{HTTP_HOST} ^www\.brandstudios\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^(.*)$ https://brandstudios.com/$1 [R=301,L]
 # Serve WebP copies of images to browsers that accept them
 RewriteCond %{HTTP:Accept} image/webp
 RewriteCond %{REQUEST_FILENAME} ^(.+)\.(png|jpe?g)$ [NC]
