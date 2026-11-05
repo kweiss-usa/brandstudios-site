@@ -5,6 +5,8 @@
 <base href="/">
 <title>UTC Digital University | Trabajo | Brand Studios</title>
 <meta name="description" content="Todos juntos. Adelante. Un hogar para el aprendizaje en una empresa global, desde el primer banner que dice que es hora de ponerse inteligente hasta un…">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QEMQ0Y2TVZ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QEMQ0Y2TVZ",{send_page_view:false});</script>
 <meta name="theme-color" content="#232325">
 <link rel="icon" href="img/mark.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1391,6 +1393,7 @@ function route(noScroll){
   else{html=pageHome();cur='home';}
   document.documentElement.lang=lang;
   setSeo(h);
+  if(window.gtag&&window.__pv){gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:location.pathname});}
   renderNav(cur);
   app.style.animation='none';void app.offsetWidth;app.style.animation='';
   app.innerHTML=html;
@@ -1431,6 +1434,7 @@ window.addEventListener('popstate',function(){route(false);});
   }
 })();
 route(true);
+window.__pv=1;if(window.gtag)gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:location.pathname});
 })();
 </script>
 
