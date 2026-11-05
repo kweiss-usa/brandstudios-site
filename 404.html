@@ -6,7 +6,7 @@
 <title>Page not found | Brand Studios</title>
 <meta name="description" content="This page could not be found.">
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QEMQ0Y2TVZ"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QEMQ0Y2TVZ",{send_page_view:false});</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}var bc=null;try{bc=localStorage.getItem("bs-consent");}catch(e){}gtag("consent","default",{analytics_storage:bc==="granted"?"granted":"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",region:["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE","IS","LI","NO","GB","CH"],wait_for_update:400});gtag("js",new Date());gtag("config","G-QEMQ0Y2TVZ",{send_page_view:false});</script>
 <meta name="theme-color" content="#232325">
 <link rel="icon" href="img/mark.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -351,6 +351,11 @@ footer .fsoc{display:flex;gap:16px;align-items:center}footer .fsoc a{display:fle
 .pagehead.ph h1,.pagehead.ph .kind{position:relative}
 .tlogos{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:0}.tlogos img{height:24px;width:auto;max-width:170px;object-fit:contain;opacity:.85}.tlogos em{font-style:normal;font-size:18px;font-weight:600;letter-spacing:-.01em;color:#8E8E93}.inl{text-decoration:underline;text-decoration-color:#F24E29;text-underline-offset:4px}.recl{list-style:none;margin:28px 0 0;padding:0}.recl li{display:flex;gap:24px;align-items:center;padding:18px 0;border-top:1px solid #D2D2D7}.recl .rl{width:120px;flex:none}.recl .rl img{height:28px;width:auto}.recl .rl em{font-style:normal;font-size:20px;font-weight:600;color:#8E8E93}.recl .rt b{display:block;font-size:18px;letter-spacing:-.01em}.recl .rt{color:#424245;font-size:16px}
 .rh{font-size:24px;letter-spacing:-.02em;font-weight:600;margin:40px 0 0}.recl .rt a{display:block;margin-bottom:2px}.recl .rt a+*{}.recl .rt{display:block}
+
+.ck{position:fixed;left:16px;right:16px;bottom:16px;max-width:760px;margin:0 auto;background:#232325;color:#fff;border-radius:14px;padding:18px 22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;z-index:200;box-shadow:0 10px 40px rgba(0,0,0,.35);font-size:15px;line-height:1.45}
+.ck p{margin:0;flex:1 1 280px;color:#D2D2D7}
+.ck button{font:inherit;font-weight:500;border:0;border-radius:980px;padding:10px 20px;cursor:pointer}
+.ck .ok{background:#fff;color:#1d1d1f}.ck .no{background:transparent;color:#D2D2D7;border:1px solid rgba(255,255,255,.3)}
 </style>
 <meta name="robots" content="noindex,follow"><meta property="og:site_name" content="Brand Studios"><meta property="og:type" content="article"><meta property="og:title" content="Page not found | Brand Studios"><meta property="og:description" content="This page could not be found."><meta property="og:url" content="https://brandstudios.com/notfound/"><meta property="og:image" content="https://brandstudios.com/img/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Page not found | Brand Studios"><meta name="twitter:description" content="This page could not be found."><meta name="twitter:image" content="https://brandstudios.com/img/og.jpg"><script id="ld" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://brandstudios.com/#org","name":"Brand Studios","url":"https://brandstudios.com/","logo":"https://brandstudios.com/img/mark.png","email":"info@brandstudios.net","founder":{"@type":"Person","name":"Kenyon Weiss","url":"https://kenyonweiss.com"},"description":"Brand Studios is a collective of storytellers, designers and filmmakers. Brand strategy, employee communications, corporate film and digital experiences for global companies, from Tampa Bay and Barcelona.","sameAs":["https://www.linkedin.com/company/brand-studios","https://www.facebook.com/BrandStudios"],"location":[{"@type":"Place","name":"Brand Studios Tampa Bay","address":{"@type":"PostalAddress","streetAddress":"685 Main St., Ste C","addressLocality":"Safety Harbor","addressRegion":"FL","postalCode":"34695","addressCountry":"US"}},{"@type":"Place","name":"Brand Studios Barcelona","address":{"@type":"PostalAddress","streetAddress":"Padilla 347","addressLocality":"Barcelona","postalCode":"08025","addressCountry":"ES"}}]},{"@type":"WebSite","@id":"https://brandstudios.com/#site","url":"https://brandstudios.com/","name":"Brand Studios","publisher":{"@id":"https://brandstudios.com/#org"},"inLanguage":["en","es"]}]}</script></head>
 <body>
@@ -1410,6 +1415,22 @@ function route(noScroll){
     if(!fd.get('e')||!fd.get('m')){msg.textContent=T().fErr;return;}
     fetch('contact.php',{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(j){if(j&&j.ok){msg.textContent=T().fThanks;cf.reset();}else{msg.textContent=T().fErr;}}).catch(function(){msg.textContent=T().fErr;});});}
 }
+
+function needsConsent(){
+  var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}
+  if(!/^Europe\//.test(tz)&&!/^(Atlantic\/(Azores|Madeira|Canary|Faroe|Reykjavik)|Africa\/Ceuta)$/.test(tz))return false;
+  return !/^Europe\/(Moscow|Minsk|Istanbul|Kaliningrad|Samara|Volgograd|Kirov|Astrakhan|Saratov|Ulyanovsk|Simferopol|Kyiv|Kiev|Uzhgorod|Zaporozhye|Chisinau|Tiraspol|Belgrade|Sarajevo|Skopje|Tirane|Podgorica)$/.test(tz);
+}
+function consentBanner(){
+  var saved=null;try{saved=localStorage.getItem('bs-consent');}catch(e){}
+  if(saved||!needsConsent()||document.getElementById('ck'))return;
+  var es=lang==='es',d=document.createElement('div');d.className='ck';d.id='ck';d.setAttribute('role','dialog');d.setAttribute('aria-label',es?'Cookies':'Cookies');
+  d.innerHTML='<p>'+(es?'Usamos cookies de analítica para entender cómo se usa el sitio. Puedes aceptarlas o rechazarlas.':'We use analytics cookies to understand how the site is used. You can accept or decline them.')+'</p><button class="no" type="button">'+(es?'Rechazar':'Decline')+'</button><button class="ok" type="button">'+(es?'Aceptar':'Accept')+'</button>';
+  function pick(v){try{localStorage.setItem('bs-consent',v);}catch(e){}if(window.gtag)gtag('consent','update',{analytics_storage:v});d.remove();}
+  d.querySelector('.ok').addEventListener('click',function(){pick('granted');});
+  d.querySelector('.no').addEventListener('click',function(){pick('denied');});
+  document.body.appendChild(d);
+}
 function go(path){
   if(path===location.pathname){window.scrollTo(0,0);return;}
   history.pushState(null,'',path);route(false);
@@ -1434,6 +1455,7 @@ window.addEventListener('popstate',function(){route(false);});
   }
 })();
 route(true);
+consentBanner();
 window.__pv=1;if(window.gtag)gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:location.pathname});
 })();
 </script>
